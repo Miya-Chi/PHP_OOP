@@ -45,25 +45,17 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>create new website</td>
-                        <td>2019/08/21</td>
+                        <td><?php echo h($task['name']); ?></td>
+                        <td><?php echo date('Y/m/d/', strtotime(h($task['due_date']))); ?></td>
+                        <td><?php echo h($task['due_date']); ?>2019/08/21</td>
                         <td>
                             <a class="text-success" href="edit.php">EDIT</a>
                         </td>
                         <td>
-                            <a class="text-danger" href="delete.php">DELETE</a>
+                            <a class="text-danger" href="delete.php?id=<?php echo h($task['id']) ?>">DELETE</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>go to club</td>
-                        <td>2019/10/21</td>
-                        <td>
-                            <a class="text-success" href="edit.php">EDIT</a>
-                        </td>
-                        <td>
-                            <a class="text-danger" href="delete.php">DELETE</a>
-                        </td>
-                    </tr>
+
                 </tbody>
             </table>  
         </section>
