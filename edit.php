@@ -1,3 +1,13 @@
+<?php 
+    require_once('function.php');
+    require_once('Models/Todo.php');
+
+    $id = $_GET['id'];
+
+    $todo = new Todo();
+    $task = $todo->get($id);
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
