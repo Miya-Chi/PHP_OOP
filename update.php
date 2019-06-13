@@ -7,7 +7,7 @@ $id = $_POST['id'];
 
 $todo = new Todo;
 
-// $todo->update($task,$id);
+$todo->update($task,$id);
 
 header('Location:index.php');
 

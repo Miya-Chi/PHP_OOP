@@ -13,21 +13,21 @@ class Todo
 
     public function all()
     {
-        $stmt = $this->db_manager->dbh->prepare('SELECT * FROM ' . $this->table . 'ORDER BT id desc');
+        $stmt = $this->db_manager->dbh->prepare('SELECT * FROM ' . $this->table . ' ORDER BY id desc');
         $stmt->execute();
         $tasks = $stmt->fetchAll();
 
         return $tasks;
     }
 
-    public function creat($name)
+    public function create($name)
     {
-      $stmt = $this->db_manager->dbh->pepare('INSERT INTO ' . $this->table . '(name) VALUES (?)');
+      $stmt = $this->db_manager->dbh->prepare('INSERT INTO ' . $this->table . ' (name) VALUES (?)');
       $stmt->execute([$name]);
     }
     public function get($id)
     {
-      $stme¥t = $this->db_manager->prepare('SELECT * FROM ' . $this->table . 'WHERE id = ?');
+      $stmt = $this->db_manager->dbh->prepare('SELECT * FROM ' . $this->table . ' WHERE id = ?');
         $stmt->execute([$id]);
         $task = $stmt->fetch();
 
@@ -42,7 +42,7 @@ class Todo
 
     public function delete($id)
     {
-      $stmt = $this->db_mager->dbh->prepare('DELETE FROM ' . $this->table . 'WHERE id = ?');
+      $stmt = $this->db_manager->dbh->prepare('DELETE FROM ' . $this->table . ' WHERE id = ?');
       $stmt->execute([$id]);
     }
 }

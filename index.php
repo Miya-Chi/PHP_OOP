@@ -1,3 +1,12 @@
+<?php 
+    require_once('Models/Todo.php');
+    require_once('function.php');
+
+    $todo = new Todo();
+
+    $tasks = $todo->all();
+
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +34,7 @@
         <section>
             <form class="form-row" action="create.php" method="POST">
                 <div class="col-12 col-md-9 py-2">
-                    <input type="text" class="form-control" placeholder="ADD TODO">
+                    <input type="text" class="form-control" placeholder="ADD TODO" name="task">
                 </div>
                 <div class="py-2 col-md-3 col-12">
                     <button type="submit" class="col-12 btn btn-primary btn-block">ADD</button>
@@ -44,18 +53,18 @@
                     </tr>
                 </thead>
                 <tbody>
+                   <?php foreach ($tasks as $task): ?>
                     <tr>
                         <td><?php echo h($task['name']); ?></td>
-                        <td><?php echo date('Y/m/d/', strtotime(h($task['due_date']))); ?></td>
-                        <td><?php echo h($task['due_date']); ?>2019/08/21</td>
+                        <td><?php echo date('y/m/d', strtotime(h($task['due_date']))); ?></td>
                         <td>
-                            <a class="text-success" href="edit.php">EDIT</a>
+                            <a class="text-success" href="edit.php?id=<?php echo h($task['id']) ?>">EDIT</a>
                         </td>
                         <td>
                             <a class="text-danger" href="delete.php?id=<?php echo h($task['id']) ?>">DELETE</a>
                         </td>
                     </tr>
-
+                <?php endforeach; ?>
                 </tbody>
             </table>  
         </section>

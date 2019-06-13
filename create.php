@@ -8,3 +8,5 @@ $todo = new Todo;
 $todo->create($task);
 // トップページに飛ぶうぃ
 header('Location: index.php');
+
+?>
